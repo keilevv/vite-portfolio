@@ -7,6 +7,13 @@ body {
   font-family: "Merriweather", serif;
 }
 
+.transition-brown {
+  transition: color 0.3s ease;
+}
+.transition-brown:hover {
+  color: rgba(255, 87, 51, 0.7) !important;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;

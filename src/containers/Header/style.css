@@ -12,6 +12,7 @@
     gap: 50px;
 
     .header-text {
+      padding-left: 40px;
       .header-title {
         margin-top: 0px;
         font-size: 72px;
@@ -19,14 +20,18 @@
       }
       .header-subtitle {
         font-size: 42px;
+        color: wheat;
       }
       .header-description {
         font-size: 32px;
+        max-width: 400px;
+        font-style: italic;
       }
     }
 
     .header-avatar {
       display: flex;
+      padding-right: 40px;
       .avatar-image {
         overflow: hidden;
         width: 300px;
@@ -36,14 +41,26 @@
       }
     }
   }
+  .social-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    .social-icon {
+      cursor: pointer;
+      font-size: 70px;
+      color: wheat;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
   .header-container {
-    padding: 20px;
+    padding: 20px 20px 50px 20px;
     .header-content {
       flex-direction: column;
       .header-text {
+        padding-left: 0px;
         .header-title {
           font-size: 72px;
         }
@@ -56,12 +73,16 @@
       }
       .header-avatar {
         justify-content: center;
+        padding-right: 0px;
 
         .avatar-image {
           width: 150px;
           height: 150px;
         }
       }
+    }
+    .social-icons-container{
+      margin-top: 50px;
     }
   }
 }
