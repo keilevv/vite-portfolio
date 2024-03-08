@@ -1,3 +1,4 @@
+import { FormattedMessage } from "react-intl";
 import AvatarImage from "../../assets/me.jpg";
 import Navbar from "../../components/Navbar";
 import "./style.css";
@@ -10,10 +11,10 @@ function HeaderContainer() {
           <div className="header-text">
             <h1 className="header-title"> Caleb Villalba</h1>
             <h1 className="header-subtitle transition-brown ">
-              Web developer
+              <FormattedMessage id="banner.subtitle" />
             </h1>
             <h1 className="header-description">
-              Making it better every day, what is already already done fine.
+              <FormattedMessage id="banner.description" />
             </h1>
           </div>
           <div className="header-avatar">

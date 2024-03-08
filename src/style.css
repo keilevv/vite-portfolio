@@ -3,7 +3,6 @@ html {
 }
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
   box-sizing: border-box;
   background-color: #131313;
   color: white;
@@ -22,7 +21,6 @@ body {
 .transition-wheat:hover {
   color: wheat !important;
 }
-
 
 .app-container {
   display: flex;
@@ -47,5 +45,20 @@ body {
   #content,
   #footer {
     flex: 1;
+  }
+}
+
+.dropdown {
+  .ant-dropdown-menu {
+    background: #131f27;
+    border: 2px solid white;
+    .ant-dropdown-menu-item {
+      color: white;
+      font-family: "Merriweather", serif;
+    }
+    .ant-dropdown-menu-item:hover {
+      color: wheat;
+      background-color: #344042;
+    }
   }
 }

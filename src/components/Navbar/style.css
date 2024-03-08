@@ -7,12 +7,29 @@
   position: fixed;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  .nav-content{
+  .nav-content {
     margin: 0px 20px;
     border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-between;
   }
 }
-
+.nav-right {
+  display: flex;
+  .language-picker {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    .language-picker-icon {
+      font-size: 20px;
+      margin-top: auto;
+      transform: translate(0px, -70%);
+    }
+  }
+  .language-picker:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
 .expanded {
   height: 100vh;
 }
@@ -21,31 +38,33 @@
   display: inline;
 }
 
+
 .nav > .nav-content > .nav-header > .nav-title {
   display: inline-block;
   font-size: 22px;
   color: #fff;
   padding: 10px 10px 10px 10px;
+  text-decoration: none;
 }
 
 .nav > .nav-content > .nav-btn {
   display: none;
 }
 
-.nav > .nav-content > .nav-links {
+.nav > .nav-content > .nav-right > .nav-links {
   display: inline;
   float: right;
   font-size: 18px;
 }
 
-.nav > .nav-content > .nav-links > a {
+.nav > .nav-content > .nav-right > .nav-links > a {
   display: inline-block;
   padding: 13px 10px 13px 20px;
   text-decoration: none;
   color: #efefef;
 }
 
-.nav > .nav-content > .nav-links > a:hover {
+.nav > .nav-content > .nav-right > .nav-links > a:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -54,6 +73,11 @@
 }
 
 @media (max-width: 600px) {
+  .nav-right {
+    .language-picker {
+      margin-right: 30px;
+    }
+  }
   .nav > .nav-content > .nav-btn {
     display: inline-block;
     position: absolute;
@@ -76,7 +100,7 @@
     height: 10px;
     border-top: 2px solid #eee;
   }
-  .nav > .nav-content > .nav-links {
+  .nav > .nav-content > .nav-right > .nav-links {
     position: absolute;
     display: block;
     width: 100%;
@@ -88,14 +112,14 @@
     top: 50px;
     left: 0px;
   }
-  .nav > .nav-content > .nav-links > a {
+  .nav > .nav-content > .nav-right > .nav-links > a {
     display: block;
     width: 100%;
   }
-  .nav > .nav-content > #nav-check:not(:checked) ~ .nav-links {
+  .nav > .nav-content > #nav-check:not(:checked) ~ .nav-right > .nav-links {
     height: 0px;
   }
-  .nav > .nav-content > #nav-check:checked ~ .nav-links {
+  .nav > .nav-content > #nav-check:checked ~ .nav-right > .nav-links {
     height: calc(100vh - 50px);
     overflow-y: auto;
   }
