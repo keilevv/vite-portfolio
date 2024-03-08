@@ -1,0 +1,46 @@
+.about-container {
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .about-title {
+    color: wheat;
+  }
+  .section {
+    margin: 50px 0px;
+  }
+
+  .about-text {
+    font-size: 18px;
+    max-width: 600px;
+  }
+  .about-skills {
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    .main-skill {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      min-height: 300px;
+      h2 {
+        color: #ff8408;
+      }
+    }
+    .divider {
+      width: 2px;
+      background-color: white;
+      margin-top: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-container {
+    padding: 35px;
+    .about-text {
+      font-size: 16px;
+    }
+  }
+}
