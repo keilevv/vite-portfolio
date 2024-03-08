@@ -1,4 +1,5 @@
 import HeaderContainer from "./containers/Header";
+import AboutContainer from "./containers/About";
 import "./style.css";
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
         <section id="header">
           <HeaderContainer />
         </section>
-        <section id="content">Content</section>
+        <section id="about">
+          <AboutContainer />
+        </section>
         <section id="footer">Footer</section>
       </div>
     </>

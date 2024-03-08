@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: "Arial", sans-serif;
@@ -13,6 +16,13 @@ body {
 .transition-brown:hover {
   color: rgba(255, 87, 51, 0.7) !important;
 }
+.transition-wheat {
+  transition: color 0.3s ease;
+}
+.transition-wheat:hover {
+  color: wheat !important;
+}
+
 
 .app-container {
   display: flex;

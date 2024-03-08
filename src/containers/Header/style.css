@@ -59,16 +59,21 @@
     padding: 20px 20px 50px 20px;
     .header-content {
       flex-direction: column;
+      padding-top: 50px;
+
       .header-text {
         padding-left: 0px;
         .header-title {
-          font-size: 72px;
+          font-size: 46px;
         }
         .header-subtitle {
-          font-size: 42px;
+          font-size: 32px;
+          text-align: center;
         }
         .header-description {
-          font-size: 32px;
+          font-size: 22px;
+          text-align: center;
+
         }
       }
       .header-avatar {
@@ -83,6 +88,9 @@
     }
     .social-icons-container{
       margin-top: 50px;
+      .social-icon{
+        font-size: 50px;
+      }
     }
   }
 }

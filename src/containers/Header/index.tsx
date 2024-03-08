@@ -1,4 +1,4 @@
-import AvatarImage from "../../assets/avatar.jpg";
+import AvatarImage from "../../assets/me.jpg";
 import Navbar from "../../components/Navbar";
 import "./style.css";
 function HeaderContainer() {
@@ -10,7 +10,7 @@ function HeaderContainer() {
           <div className="header-text">
             <h1 className="header-title"> Caleb Villalba</h1>
             <h1 className="header-subtitle transition-brown ">
-              Fullstack web developer
+              Web developer
             </h1>
             <h1 className="header-description">
               Making it better every day, what is already already done fine.
@@ -27,7 +27,7 @@ function HeaderContainer() {
         <div className="social-icons-container">
           <i
             className="fa-brands fa-square-github social-icon transition-brown"
-            onClick={() => window.open("https://github.com/caleb-villalba")}
+            onClick={() => window.open("https://github.com/keilevv")}
           ></i>
           <i
             className="fa-brands fa-linkedin social-icon transition-brown"

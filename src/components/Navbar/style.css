@@ -1,18 +1,102 @@
-/* Navbar.css */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  color: white; /* You can change the text color */
-  padding: 10px 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+* {
+  box-sizing: border-box;
 }
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid white;
-  margin-right: 38px;
+.nav {
+  width: 100%;
+  position: fixed;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  .nav-content{
+    margin: 0px 20px;
+    border-bottom: 1px solid white;
+  }
+}
+
+.expanded {
+  height: 100vh;
+}
+
+.nav > .nav-content > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-content > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-content > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-content > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-content > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 20px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-content > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > .nav-content > #nav-check {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .nav > .nav-content > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-content > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-content > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-content > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-content > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-content > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > .nav-content > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > .nav-content > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
 }
