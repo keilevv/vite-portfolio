@@ -17,7 +17,8 @@ const englishTranslations = {
       "I have 2.5+ years of experience as a React frontend developer, having worked on multiple projects at Concept7, Fleks and Elemento43, where I developed and implemented key features, functionalities, and user interfaces for different projects.",
     "about.paragraph.3":
       "I am passionate about web development and computing in general and I like staying on touch with the latest trends of the industry.",
-    "footer.text": "Made with ❤️ by Caleb Villalba",
+      "about.skills": "Skills",
+      "footer.text": "Made with ❤️ by Caleb Villalba",
   },
 };
 export default englishTranslations;

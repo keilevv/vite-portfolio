@@ -17,15 +17,27 @@
   }
   .about-skills {
     display: flex;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     .main-skill {
       width: 50%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       min-height: 300px;
       h2 {
+        text-align: center;
         color: #ff8408;
+      }
+      .icons-container {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: right;
+        gap: 20px;
+        .icon {
+          margin: 0px auto;
+          text-align: center;
+        }
       }
     }
     .divider {

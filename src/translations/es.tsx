@@ -16,6 +16,7 @@ const spanishTranslations = {
       "Mis principales responsabilidades dentro de Concept7, Fleks Y Elemento43, fueron diseñar, implementar y mantener funcionalidades claves para estas compañías en diferentes proyectos.",
     "about.paragraph.3":
       "Soy apasionado acerca del mundo del desarrollo web y de la computación en general, lo que me ha permitido tener el inicio de mi carrera en europa en la ciudad de Amsterdam, trabajando con equipos multinacionales y multiculturales.",
+    "about.skills": "Habilidades",
     "footer.text": "Hecho con ❤️ por Caleb Villalba",
   },
 };
