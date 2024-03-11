@@ -47,7 +47,9 @@ body {
     flex: 1;
   }
 }
-
+.footer-container{
+  text-align: center;
+}
 .dropdown {
   .ant-dropdown-menu {
     background: #131f27;

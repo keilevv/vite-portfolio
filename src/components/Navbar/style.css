@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     width: 50px;
+    cursor: pointer;
     .language-picker-icon {
       font-size: 20px;
       margin-top: auto;
@@ -28,6 +29,7 @@
   }
   .language-picker:hover {
     background-color: rgba(0, 0, 0, 0.3);
+    color: wheat;
   }
 }
 .expanded {
@@ -37,7 +39,6 @@
 .nav > .nav-content > .nav-header {
   display: inline;
 }
-
 
 .nav > .nav-content > .nav-header > .nav-title {
   display: inline-block;

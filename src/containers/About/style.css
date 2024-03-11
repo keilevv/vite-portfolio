@@ -37,6 +37,11 @@
         .icon {
           margin: 0px auto;
           text-align: center;
+          transition: all 0.3s ease-in-out;
+        }
+        .icon:hover {
+          filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+          transform: scale(1.1);
         }
       }
     }

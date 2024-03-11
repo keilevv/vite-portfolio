@@ -17,7 +17,7 @@
         margin-top: 0px;
         font-size: 72px;
         text-align: center;
-        color: #FF8408;
+        color: #ff8408;
       }
       .header-subtitle {
         font-size: 42px;
@@ -45,12 +45,16 @@
   .social-icons-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 15px;
     margin-top: 50px;
     .social-icon {
       cursor: pointer;
       font-size: 70px;
       color: wheat;
+      padding: 10px;
+    }
+    .social-icon:hover {
+      filter: drop-shadow(0 0 10px #ff8408);
     }
   }
 }

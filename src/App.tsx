@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { ConfigProvider } from "antd";
-import { IntlProvider } from "react-intl";
+import { FormattedMessage, IntlProvider } from "react-intl";
 import englishTranslations from "./translations/en";
 import spanishTranslations from "./translations/es";
 /* Components */
 import HeaderContainer from "./containers/Header";
 import AboutContainer from "./containers/About";
 import ExperienceContainer from "./containers/Experience";
+import ProjectsContainer from "./containers/Projects";
 /* Hooks */
 import { useStore } from "./store/useStore";
 import "./style.css";
@@ -35,7 +36,16 @@ function App() {
           <section id="experience">
             <ExperienceContainer />
           </section>
-          <section id="footer">Footer</section>
+          <section id="projects">
+            <ProjectsContainer />
+          </section>
+          <section id="footer">
+            <div className="footer-container">
+              <p>
+                <FormattedMessage id="footer.text" />
+              </p>
+            </div>
+          </section>
         </div>
       </ConfigProvider>
     </IntlProvider>

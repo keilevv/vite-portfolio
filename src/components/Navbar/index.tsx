@@ -61,11 +61,8 @@ function Navbar() {
             <a className="transition-wheat" href="#experience">
               <FormattedMessage id="navbar.experience" />
             </a>
-            <a className="transition-wheat">
+            <a className="transition-wheat" href="#projects">
               <FormattedMessage id="navbar.projects" />
-            </a>
-            <a className="transition-wheat">
-              <FormattedMessage id="navbar.contact" />
             </a>
           </div>
         </div>
