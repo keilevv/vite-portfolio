@@ -30,11 +30,11 @@ function App() {
           <section id="header">
             <HeaderContainer />
           </section>
-          <section id="about">
-            <AboutContainer />
-          </section>
           <section id="experience">
             <ExperienceContainer />
+          </section>
+          <section id="about">
+            <AboutContainer />
           </section>
           <section id="projects">
             <ProjectsContainer />
