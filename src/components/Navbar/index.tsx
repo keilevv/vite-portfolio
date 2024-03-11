@@ -58,7 +58,7 @@ function Navbar() {
             <a className="transition-wheat" href="#about">
               <FormattedMessage id="navbar.about" />
             </a>
-            <a className="transition-wheat">
+            <a className="transition-wheat" href="#experience">
               <FormattedMessage id="navbar.experience" />
             </a>
             <a className="transition-wheat">

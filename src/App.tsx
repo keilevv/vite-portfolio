@@ -6,6 +6,7 @@ import spanishTranslations from "./translations/es";
 /* Components */
 import HeaderContainer from "./containers/Header";
 import AboutContainer from "./containers/About";
+import ExperienceContainer from "./containers/Experience";
 /* Hooks */
 import { useStore } from "./store/useStore";
 import "./style.css";
@@ -30,6 +31,9 @@ function App() {
           </section>
           <section id="about">
             <AboutContainer />
+          </section>
+          <section id="experience">
+            <ExperienceContainer />
           </section>
           <section id="footer">Footer</section>
         </div>
