@@ -1,5 +1,4 @@
 import { FormattedMessage } from "react-intl";
-import AutoexpressImage from "../../assets/autoexpress.png";
 import "./style.css";
 
 interface ProjectCardProps {
