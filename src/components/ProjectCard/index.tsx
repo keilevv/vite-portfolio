@@ -27,16 +27,20 @@ function ProjectCard({
       <p>{description}</p>
       <div className="project-tags">
         {tags.map((tag, index) => (
-          <span className="project-tag" key={index}>{tag}</span>
+          <span className="project-tag" key={index}>
+            {tag}
+          </span>
         ))}
       </div>
-      <div className="icon-container">
-        <a
-          className="fa-brands fa-github-alt github-icon"
-          href={githubLink}
-          target="_blank"
-        ></a>
-      </div>
+      {githubLink && (
+        <div className="icon-container">
+          <a
+            className="fa-brands fa-github-alt github-icon"
+            href={githubLink}
+            target="_blank"
+          ></a>
+        </div>
+      )}
       <button className="project-button" onClick={() => window.open(siteLink)}>
         <FormattedMessage id="projectCard.button" />
       </button>

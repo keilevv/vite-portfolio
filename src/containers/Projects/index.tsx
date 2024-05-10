@@ -1,6 +1,9 @@
 import ProjectCard from "../../components/ProjectCard";
 import AutoexpressImage from "../../assets/autoexpress.png";
 import VoxelEngineImage from "../../assets/voxelengine.png";
+import FleksImage from "../../assets/fleks.png";
+import VonwoodImage from "../../assets/vonwood.png";
+
 import "./style.css";
 import { FormattedMessage } from "react-intl";
 import { injectIntl } from "react-intl";
@@ -25,7 +28,15 @@ function ProjectsContainer({ intl }: Props) {
       githubLink: "https://github.com/keilevv/autoexpress-client",
       image: AutoexpressImage,
       description: intl.formatMessage({ id: "projectCard.1.description" }),
-      tags: ["React", "Express", "Javascript ES6", "MongoDB"],
+      tags: [
+        "React",
+        "Javascript",
+        "Redux",
+        "HTML",
+        "CSS",
+        "TailwindCSS",
+        "Vite",
+      ],
     },
     {
       title: "Voxelengine",
@@ -44,13 +55,49 @@ function ProjectsContainer({ intl }: Props) {
       tags: ["ExpressJs", "MongoDB", "Mongoose", "Node.js"],
     },
   ];
+
+  const workedOnProjects: ProjectCardProps[] = [
+    {
+      title: "Fleks",
+      siteLink: "https://app.fleks.works/",
+      githubLink: "",
+      image: FleksImage,
+      description: intl.formatMessage({ id: "projectCard.4.description" }),
+      tags: ["React", "Javascript", "Redux", "Webpack", "Node.js", "Antd"],
+    },
+    {
+      title: "Vonwood",
+      siteLink: "https://vonwood.com/",
+      githubLink: "",
+      image: VonwoodImage,
+      description: intl.formatMessage({ id: "projectCard.5.description" }),
+      tags: ["React", "Typescript", "Redux", "Webpack", "Node.js", "Antd"],
+    },
+  ];
   return (
     <div className="projects-container">
-      <h1 className="projects-title">
-        <FormattedMessage id="projects.title" />
-      </h1>
       <div className="projects-content">
-        {projects.map((project, index) => (
+        <h1 className="projects-title">
+          <FormattedMessage id="projects.owned" />
+        </h1>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {projects.map((project, index) => (
+            <div className="project-card-container" key={index}>
+              <ProjectCard
+                title={project.title}
+                siteLink={project.siteLink}
+                githubLink={project.githubLink}
+                image={project.image}
+                description={project.description}
+                tags={project.tags}
+              />
+            </div>
+          ))}
+        </div>
+        <h1 className="projects-title" style={{ marginTop: "80px" }}>
+          <FormattedMessage id="projects.worked" />
+        </h1>
+        {workedOnProjects.map((project, index) => (
           <div className="project-card-container" key={index}>
             <ProjectCard
               title={project.title}

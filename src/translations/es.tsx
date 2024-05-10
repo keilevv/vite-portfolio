@@ -30,13 +30,18 @@ const spanishTranslations = {
       " Este año viajé a Ámsterdam, Países bajos, donde trabajé directamente en la compañía como desarrollador frontend en una empresa de startup, donde aprendí  mucho acerca de las compañíasSaaS e interactuar direactamente con los clientes. Mis principales responsabilidades eran la creación, implementación y mantenimiento de funcionalidades para el proyecto principal de la empresa.",
     "experience.3.description":
       " Esta fue mi introducción al desarrollo web, donde aprendi las habilidades necesarias y más acerca de como trabajar a nivel profesional con un equipo, usando React.js como mi principal herramienta.",
-    "projects.title": "Proyectos",
+    "projects.owned": "Proyectos propios",
+    "projects.worked": "Proyectos trabajados",
     "projectCard.1.description":
       "Este es un proyecto real para un taller de vehículos en Cartagena. Actualmente en desarrollo, pero tiene una aplicación accesible al público para obtener feedback.",
     "projectCard.2.description":
       "Motor 3d con generación de mundos aleatorios. Aún en desarrollo, pero ya he aplicado algunas mejoras con optimizaciones como GPU instancing y object culling",
     "projectCard.3.description":
       "Backend API para Autoexpress App. Actualmente en desarrollo, soporta autenticación y autorización de usuarios por medio de JWT, operaciones CRUD para clientes, usuarios, autos, citas y más,, Cars, Appointments and more. Se planea conectar a la API del software interno de la compañía para alimentar la data del servidor backend.",
+    "projectCard.4.description":
+      "Fleks es una plataforma que te permite gestionar tu personal flexible, donde podrás solicitar empleados para tus proyectos registrados. Este es el proyecto en el que más he contribuido, diseñando e implementando características clave que les han ayudado a captar la atención de sus clientes.",
+    "projectCard.5.description":
+      "Vonwood es una plataforma que ayuda a los clientes a conectarse con empresas madereras, en la cual pueden solicitar los materiales de sus construcciones y los proveedores les ofrecerán sus mejores precios. Para este proyecto trabajé junto con consultores para acelerar el desarrollo de las características principales para producir un MVP.",
     "projectCard.button": "Ver Sitio",
     "footer.text": "Hecho con ❤️ por Caleb Villalba",
   },

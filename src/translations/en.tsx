@@ -31,13 +31,18 @@ const englishTranslations = {
       "This year I traveled to Amsterdam, Netherlands, where I worked directly as a frontend devoper in a startup company, where I learned a lot about SaaS companies and interacting directly with clients. My main responsabilities were to design, implement and mantain features for the main product of the company.",
     "experience.3.description":
       "This was my introduction to web development, where I learned the basics and more on how to work at a professional level with a team using React.js as my primary tool.",
-    "projects.title": "Projects",
+    "projects.owned": "Owned projecs",
+    "projects.worked": "Worked on projects",
     "projectCard.1.description":
       "This is meant to be a fullstack app for a real company in Cartagena, Colombia. Currently under development but has a deployed version for user feedback.",
     "projectCard.2.description":
       "3D engine with procedural world generation. Still on development but already using cool optimizations like object culling and GPU instancing",
     "projectCard.3.description":
       "Backend API for the Autoexpress App, Currently in development, supports User authentication and authorization with JWT, CRUD operations for Client, Users, Cars, Appointments and more. Meant to connect via API to in-house operations software to feed the data to the backend server.",
+    "projectCard.4.description":
+      "Fleks is a platform that allows you to manage your flexible personnel, where you can request employees for your registered projects. This is the project that I've contributed the most, by designing and implementing key features that have helped them capture the attention of their clients.",
+    "projectCard.5.description":
+      "Vonwood is a platform that helps clients connect with timber businesses, in which they can request the materials of their constructions and the providers will offer their best prices. For this project I worked along with consultants to speed up the develpment of the main features to produce an MVP.",
     "projectCard.button": "View Site",
     "footer.text": "Made with ❤️ by Caleb Villalba",
   },
