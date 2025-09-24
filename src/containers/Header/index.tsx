@@ -6,7 +6,7 @@ function HeaderContainer() {
   return (
     <>
       <Navbar />
-      <div className="header-container">
+      <div className="header-container pb-10">
         <div className="header-content">
           <div className="header-text">
             <h1 className="header-title"> Caleb Villalba</h1>
