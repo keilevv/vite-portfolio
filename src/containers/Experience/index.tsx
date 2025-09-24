@@ -6,7 +6,7 @@ import "./style.css";
 function ExperienceContainer() {
   return (
     <div className="experience-container">
-      <h1 className="experience-container-title">
+      <h1 className="experience-container-title text-2xl">
         <FormattedMessage id="experience.title" />
       </h1>
       <div className="experience-content">

@@ -42,6 +42,12 @@ const spanishTranslations = {
       "Fleks es una plataforma que te permite gestionar tu personal flexible, donde podrás solicitar empleados para tus proyectos registrados. Este es el proyecto en el que más he contribuido, diseñando e implementando características clave que les han ayudado a captar la atención de sus clientes.",
     "projectCard.5.description":
       "Vonwood es una plataforma que ayuda a los clientes a conectarse con empresas madereras, en la cual pueden solicitar los materiales de sus construcciones y los proveedores les ofrecerán sus mejores precios. Para este proyecto trabajé junto con consultores para acelerar el desarrollo de las características principales para producir un MVP.",
+    "projectCard.leaf_classifier.description":
+      "Leaf classifier es una web app que permite clasificar hojas usando aprendizaje automático. Su objetivo es construir un dataset de hojas y entrenar un modelo para clasificarlas.",
+    "projectCard.buceo_aventura.description":
+      "Buceo Aventura es una web app que permite reservar viajes de buceo. Su objetivo es construir un dataset de hojas y entrenar un modelo para clasificarlas.",
+    "projectCard.workwave.description":
+      "Workwave es una web app diseñada para ser utilizada en un mundo real para un médico radiólogo, permite registrar pacientes y programar citas. Aún en desarrollo pero tiene una versión desplegada para obtener feedback del usuario.",
     "projectCard.button": "Ver Sitio",
     "footer.text": "Hecho con ❤️ por Caleb Villalba",
   },

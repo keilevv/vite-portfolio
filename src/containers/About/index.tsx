@@ -38,7 +38,7 @@ function AboutContainer() {
   ];
   return (
     <div className="about-container">
-      <h1 className="about-title"><FormattedMessage id="about.title"/></h1>
+      <h1 className="about-title text-2xl mb-8"><FormattedMessage id="about.title"/></h1>
       <p className="about-text">
         <FormattedMessage id="about.paragraph.1" />
       </p>
@@ -48,7 +48,7 @@ function AboutContainer() {
       <p className="about-text">
         <FormattedMessage id="about.paragraph.3" />
       </p>
-      <h1 className="about-title section">
+      <h1 className="about-title section text-2xl mb-8">
         <FormattedMessage id="about.skills" />
       </h1>
       <div className="about-skills">

@@ -9,7 +9,7 @@ const englishTranslations = {
     "navbar.contact": "Contact",
     "banner.subtitle": "Web Developer",
     "banner.description":
-      "Making it better every day, what is already already done fine.",
+      "Making it better every day, what is already done fine.",
     "about.title": "About me",
     "about.paragraph.1":
       "As a Frontend Web Developer, I create engaging and responsive UI/UX components using React.js and many other web technologies. I´ve worked with agile teams of designers, developers, and product managers to deliver high-quality web applications for multiple clients.touch with the latest trends on my industry.",
@@ -43,6 +43,12 @@ const englishTranslations = {
       "Fleks is a platform that allows you to manage your flexible personnel, where you can request employees for your registered projects. This is the project that I've contributed the most, by designing and implementing key features that have helped them capture the attention of their clients.",
     "projectCard.5.description":
       "Vonwood is a platform that helps clients connect with timber businesses, in which they can request the materials of their constructions and the providers will offer their best prices. For this project I worked along with consultants to speed up the develpment of the main features to produce an MVP.",
+    "projectCard.leaf_classifier.description":
+      "Leaf classifier is a web app that allows you to classify leaves using machine learning. It's aimed to build a dataset of leaves and train a model to classify them.",
+    "projectCard.buceo_aventura.description":
+      "Buceo Aventura is a web app that allows you to book diving trips. It's aimed to build a dataset of leaves and train a model to classify them.",
+    "projectCard.workwave.description":
+      "This is a web app designed to be used in a real world for a medical radiologist, allows to register patients and schedule appointments. It's still in development but has a deployed version for user feedback.",
     "projectCard.button": "View Site",
     "footer.text": "Made with ❤️ by Caleb Villalba",
   },
