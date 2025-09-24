@@ -18,7 +18,7 @@ const spanishTranslations = {
       "Soy apasionado acerca del mundo del desarrollo web y de la computación en general, lo que me ha permitido tener el inicio de mi carrera en europa en la ciudad de Amsterdam, trabajando con equipos multinacionales y multiculturales.",
     "about.skills": "Habilidades",
     "experience.title": "Experiencia",
-    "experience.1": "Concept7",
+    "experience.1": "Concept7", 
     "experience.2": "Fleks",
     "experience.3": "Elemento43",
     "experience.1.date": "Feb 2023 - Feb 2024",
@@ -33,7 +33,7 @@ const spanishTranslations = {
     "projects.owned": "Proyectos propios",
     "projects.worked": "Proyectos trabajados",
     "projectCard.1.description":
-      "Este es un proyecto real para un taller de vehículos en Cartagena. Actualmente en desarrollo, pero tiene una aplicación accesible al público para obtener feedback.",
+      "Este es un proyecto real para un taller de vehículos en Cartagena. Se encarga de registrar la entrada y salida de materiales, así como la producción de reparaciones y registros de clientes.",
     "projectCard.2.description":
       "Motor 3d con generación de mundos aleatorios. Aún en desarrollo, pero ya he aplicado algunas mejoras con optimizaciones como GPU instancing y object culling",
     "projectCard.3.description":

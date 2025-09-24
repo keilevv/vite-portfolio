@@ -34,7 +34,7 @@ const englishTranslations = {
     "projects.owned": "Owned projecs",
     "projects.worked": "Worked on projects",
     "projectCard.1.description":
-      "This is meant to be a fullstack app for a real company in Cartagena, Colombia. Currently under development but has a deployed version for user feedback.",
+      "This is a fullstack app made for a real company in Cartagena, Colombia. It tracks material usage and the production of a car repair shop, as well as client registration.",
     "projectCard.2.description":
       "3D engine with procedural world generation. Still on development but already using cool optimizations like object culling and GPU instancing",
     "projectCard.3.description":
@@ -46,7 +46,7 @@ const englishTranslations = {
     "projectCard.leaf_classifier.description":
       "Leaf classifier is a web app that allows you to classify leaves using machine learning. It's aimed to build a dataset of leaves and train a model to classify them.",
     "projectCard.buceo_aventura.description":
-      "Buceo Aventura is a web app that allows you to book diving trips. It's aimed to build a dataset of leaves and train a model to classify them.",
+      "Buceo Aventura is a web app that allows you to book diving trips. The clients can provide payment through the Bold API and the admin user can manage the trips and the users.",
     "projectCard.workwave.description":
       "This is a web app designed to be used in a real world for a medical radiologist, allows to register patients and schedule appointments. It's still in development but has a deployed version for user feedback.",
     "projectCard.button": "View Site",
