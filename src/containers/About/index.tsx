@@ -38,14 +38,16 @@ function AboutContainer() {
   ];
   return (
     <div className="about-container">
-      <h1 className="about-title text-2xl mb-8"><FormattedMessage id="about.title"/></h1>
-      <p className="about-text">
+      <h1 className="about-title text-2xl mb-8">
+        <FormattedMessage id="about.title" />
+      </h1>
+      <p className="about-text mb-4">
         <FormattedMessage id="about.paragraph.1" />
       </p>
-      <p className="about-text">
+      <p className="about-text mb-4">
         <FormattedMessage id="about.paragraph.2" />
       </p>
-      <p className="about-text">
+      <p className="about-text mb-4">
         <FormattedMessage id="about.paragraph.3" />
       </p>
       <h1 className="about-title section text-2xl mb-8">

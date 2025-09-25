@@ -11,14 +11,13 @@ const spanishTranslations = {
     "banner.description": "Haciendo cada día mejor, lo que ya hacía bien.",
     "about.title": "Acerca de mi",
     "about.paragraph.1":
-      "Como desarrollador frontend, me especializo en crear componentes UI/UX utilizando React.js y varias otras tecnologías de desarrollo web. He trabajado con diferentes equipos ágiles de diseñadores, desarrolladores y product managers internacionalmente para producir software de alta calidad.",
+      "Ingeniero de software con más de 3 años de experiencia en desarrollo fullstack y frontend, especializado en la creación, mantenimiento y optimización de plataformas web para empresas SaaS.",
     "about.paragraph.2":
-      "Mis principales responsabilidades dentro de Concept7, Fleks Y Elemento43, fueron diseñar, implementar y mantener funcionalidades claves para estas compañías en diferentes proyectos.",
+      "Experto en diseñar componentes de UI/UX desde la conceptualización hasta la implementación utilizando herramientas como Figma y Adobe XD. Competente en tecnologías frontend como HTML, CSS, JavaScript, React y Three.js, y con experiencia en desarrollo backend usando Node.js, Express.js y MongoDB.",
     "about.paragraph.3":
-      "Soy apasionado acerca del mundo del desarrollo web y de la computación en general, lo que me ha permitido tener el inicio de mi carrera en europa en la ciudad de Amsterdam, trabajando con equipos multinacionales y multiculturales.",
-    "about.skills": "Habilidades",
+      "Apasionado por ofrecer experiencias de usuario atractivas, escalables y mantenibles, asegurando al mismo tiempo una funcionalidad robusta y eficiente en el lado del servidor. Comprometido con cumplir las expectativas de los stakeholders y contribuir en todas las fases del ciclo de vida del desarrollo de software.",
     "experience.title": "Experiencia",
-    "experience.1": "Concept7", 
+    "experience.1": "Concept7",
     "experience.2": "Fleks",
     "experience.3": "Elemento43",
     "experience.1.date": "Feb 2023 - Feb 2024",
@@ -49,6 +48,8 @@ const spanishTranslations = {
     "projectCard.workwave.description":
       "Workwave es una web app diseñada para ser utilizada en un mundo real para un médico radiólogo, permite registrar pacientes y programar citas. Aún en desarrollo pero tiene una versión desplegada para obtener feedback del usuario.",
     "projectCard.button": "Ver Sitio",
+    "projectCard.showMore": "Mostrar Más",
+    "projectCard.showLess": "Mostrar Menos",
     "footer.text": "Hecho con ❤️ por Caleb Villalba",
   },
 };

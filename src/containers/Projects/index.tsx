@@ -100,7 +100,6 @@ function ProjectsContainer({ intl }: Props) {
         "Vite",
         "ExpressJs",
         "MongoDB",
-        "Node.js",
       ],
     },
   ];
@@ -125,10 +124,10 @@ function ProjectsContainer({ intl }: Props) {
   ];
   return (
     <div className="md:p-8 p-2">
-      <h1 className="text-2xl font-bold text-orange-500 mb-10 text-center">
+      <h1 className="text-3xl font-bold text-orange-500 mb-10 text-center">
         <FormattedMessage id="projects.owned" />
       </h1>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-8">
         {projects.map((project, index) => (
           <div className="max-w-[400px]" key={index}>
             <ProjectCard
@@ -142,10 +141,10 @@ function ProjectsContainer({ intl }: Props) {
           </div>
         ))}
       </div>
-      <h1 className="text-2xl font-bold text-orange-500 my-10 text-center">
+      <h1 className="text-3xl font-bold text-orange-500 my-10 text-center">
         <FormattedMessage id="projects.worked" />
       </h1>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-8">
         {workedOnProjects.map((project, index) => (
           <div className="" key={index}>
             <ProjectCard
