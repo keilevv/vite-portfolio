@@ -52,17 +52,3 @@ body {
 .footer-container {
   text-align: center;
 }
-.dropdown {
-  .ant-dropdown-menu {
-    background: #131f27;
-    border: 2px solid white;
-    .ant-dropdown-menu-item {
-      color: white;
-      font-family: "Merriweather", serif;
-    }
-    .ant-dropdown-menu-item:hover {
-      color: wheat;
-      background-color: #344042;
-    }
-  }
-}

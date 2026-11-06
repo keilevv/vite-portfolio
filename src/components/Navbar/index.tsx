@@ -1,27 +1,38 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FormattedMessage } from "react-intl";
-import { Dropdown, type MenuProps } from "antd";
 import { useStore } from "../../store/useStore";
 
 import "./style.css";
+
 function Navbar() {
   const { setLanguage } = useStore();
   const [expanded, setExpanded] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const onClick: MenuProps["onClick"] = ({ key }) => {
+  const handleLanguageSelect = (key: string) => {
     setLanguage(key);
+    setIsDropdownOpen(false);
   };
 
-  const items: MenuProps["items"] = [
-    {
-      label: <FormattedMessage id="navbar.language.english" />,
-      key: "en",
-    },
-    {
-      label: <FormattedMessage id="navbar.language.spanish" />,
-      key: "es",
-    },
-  ];
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
   return (
     <div className={`nav ${expanded ? "expanded" : ""}`}>
       <div className="nav-content">
@@ -44,15 +55,37 @@ function Navbar() {
           </label>
         </div>
         <div className="nav-right">
-          <Dropdown
-            menu={{ items, onClick }}
-            trigger={["click"]}
-            placement="bottomRight"
-          >
-            <div className="language-picker">
+          <div className="relative flex items-stretch" ref={dropdownRef}>
+            <button
+              type="button"
+              className="language-picker bg-transparent border-0 text-inherit p-0"
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              aria-haspopup="true"
+              aria-expanded={isDropdownOpen}
+              aria-label="Select Language"
+            >
               <i className="fa-solid fa-globe language-picker-icon transition-wheat"></i>
-            </div>
-          </Dropdown>
+            </button>
+
+            {isDropdownOpen && (
+              <div className="absolute right-0 top-full mt-1 min-w-[120px] rounded-md border-2 border-white bg-[#131f27] py-1 shadow-lg z-50">
+                <button
+                  type="button"
+                  onClick={() => handleLanguageSelect("en")}
+                  className="w-full text-left px-4 py-2 text-sm text-white hover:text-[wheat] hover:bg-[#344042] transition-colors cursor-pointer"
+                >
+                  <FormattedMessage id="navbar.language.english" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleLanguageSelect("es")}
+                  className="w-full text-left px-4 py-2 text-sm text-white hover:text-[wheat] hover:bg-[#344042] transition-colors cursor-pointer"
+                >
+                  <FormattedMessage id="navbar.language.spanish" />
+                </button>
+              </div>
+            )}
+          </div>
 
           <div className="nav-links">
             <a className="transition-wheat" href="#experience">

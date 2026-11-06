@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { ConfigProvider } from "antd";
 import { FormattedMessage, IntlProvider } from "react-intl";
 import englishTranslations from "./translations/en";
 import spanishTranslations from "./translations/es";
@@ -25,29 +24,27 @@ function App() {
   });
   return (
     <IntlProvider messages={messages} locale={language} defaultLocale="en">
-      <ConfigProvider dropdown={{ className: "dropdown" }}>
-        <div className="app-container">
-          <section id="header">
-            <HeaderContainer />
-          </section>
-          <section id="experience">
-            <ExperienceContainer />
-          </section>
-          <section id="about">
-            <AboutContainer />
-          </section>
-          <section id="projects">
-            <ProjectsContainer />
-          </section>
-          <section id="footer">
-            <div className="footer-container">
-              <p>
-                <FormattedMessage id="footer.text" />
-              </p>
-            </div>
-          </section>
-        </div>
-      </ConfigProvider>
+      <div className="app-container">
+        <section id="header">
+          <HeaderContainer />
+        </section>
+        <section id="experience">
+          <ExperienceContainer />
+        </section>
+        <section id="about">
+          <AboutContainer />
+        </section>
+        <section id="projects">
+          <ProjectsContainer />
+        </section>
+        <section id="footer">
+          <div className="footer-container">
+            <p>
+              <FormattedMessage id="footer.text" />
+            </p>
+          </div>
+        </section>
+      </div>
     </IntlProvider>
   );
 }

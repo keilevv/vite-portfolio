@@ -16,15 +16,16 @@
 }
 .nav-right {
   display: flex;
+  align-items: stretch;
   .language-picker {
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 50px;
+    height: 100%;
     cursor: pointer;
     .language-picker-icon {
       font-size: 20px;
-      margin-top: auto;
-      transform: translate(0px, -70%);
     }
   }
   .language-picker:hover {
