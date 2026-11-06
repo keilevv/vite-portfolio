@@ -10,6 +10,7 @@ const spanishTranslations = {
     "banner.subtitle": "Desarrollador Web",
     "banner.description": "Haciendo cada día mejor, lo que ya hacía bien.",
     "about.title": "Acerca de mi",
+    "about.skills": "Habilidades",
     "about.paragraph.1":
       "Ingeniero de software con más de 3 años de experiencia en desarrollo fullstack y frontend, especializado en la creación, mantenimiento y optimización de plataformas web para empresas SaaS.",
     "about.paragraph.2":
