@@ -68,7 +68,15 @@ function App() {
   }, [engine]);
 
   const handleStartGame = useCallback(() => {
-    engine.startGame();
+    // 1. Begin transition: fade portfolio out with smooth ease-out and align camera
+    engine.setMode("transitioning-to-game");
+
+    // 2. Complete transition after animation finishes
+    const timer = setTimeout(() => {
+      engine.startGame();
+    }, 700);
+
+    return () => clearTimeout(timer);
   }, [engine]);
 
   const handlePauseGame = useCallback(() => {
@@ -88,6 +96,8 @@ function App() {
   }, [engine]);
 
   const isGameplay = experienceMode === "playing" || experienceMode === "paused";
+  const isTransitioning = experienceMode === "transitioning-to-game";
+  const hidePortfolio = isGameplay || isTransitioning;
 
   return (
     <IntlProvider messages={messages} locale={language} defaultLocale="en">
@@ -114,10 +124,12 @@ function App() {
         </>
       )}
 
-      {/* 3. Portfolio Layer (Fades/hides during active gameplay) */}
+      {/* 3. Portfolio Layer (Fades/eases gracefully during active gameplay transition) */}
       <div
-        className={`app-container relative z-10 transition-opacity duration-500 ${
-          isGameplay ? "opacity-0 pointer-events-none" : "opacity-100"
+        className={`app-container relative z-10 transition-all duration-700 ease-out transform ${
+          hidePortfolio
+            ? "opacity-0 scale-95 pointer-events-none"
+            : "opacity-100 scale-100"
         }`}
       >
         <section id="header">

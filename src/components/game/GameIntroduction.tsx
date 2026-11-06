@@ -45,6 +45,28 @@ export const GameIntroduction: React.FC<GameIntroductionProps> = ({
           </li>
           <li>
             <kbd className="px-2 py-0.5 bg-gray-700 rounded border border-gray-500 font-mono">
+              Q
+            </kbd>{" "}
+            /{" "}
+            <kbd className="px-2 py-0.5 bg-gray-700 rounded border border-gray-500 font-mono">
+              E
+            </kbd>{" "}
+            : <strong>Select Target</strong> (Cycles target to left / right; active = orange)
+          </li>
+          <li>
+            <kbd className="px-2 py-0.5 bg-cyan-900 border border-cyan-400 text-cyan-200 font-mono">
+              Hold W / ↑
+            </kbd>{" "}
+            : <strong>Fire & Hold Hook</strong> (Sticks to target as long as W is held)
+          </li>
+          <li>
+            <kbd className="px-2 py-0.5 bg-amber-900 border border-amber-400 text-amber-200 font-mono">
+              Hold Space (while hooked)
+            </kbd>{" "}
+            : <strong>Retract Rope</strong> (Pulls in rope to gain upward & forward impulse)
+          </li>
+          <li>
+            <kbd className="px-2 py-0.5 bg-gray-700 rounded border border-gray-500 font-mono">
               Esc
             </kbd>{" "}
             : Pause

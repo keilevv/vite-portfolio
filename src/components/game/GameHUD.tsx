@@ -27,7 +27,7 @@ export const GameHUD: React.FC<GameHUDProps> = ({
       <div className="fixed top-4 left-4 right-4 flex justify-between items-center z-40 pointer-events-auto">
         <div className="flex items-center gap-4">
           <div className="bg-[#131f27]/80 backdrop-blur border border-white/30 px-4 py-2 rounded-lg text-xs text-white">
-            <span className="text-[#ff8408] font-bold">ZONE:</span> Movement Test Arena
+            <span className="text-[#ff8408] font-bold">ZONE:</span> City of 
           </div>
 
           {/* Health Bar Placeholder */}

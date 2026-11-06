@@ -1,91 +1,68 @@
 import * as THREE from "three";
 import { Player } from "../entities/Player";
+import { CityGenerator } from "../world/CityGenerator";
+import { PlatformBox } from "../world/CityTypes";
+import { OffscreenIndicatorManager } from "./OffscreenIndicatorManager";
 
 export class SceneManager {
   public scene: THREE.Scene;
   public groundY: number = 0;
-  private backgroundPillars: THREE.Mesh[] = [];
+  public cityGenerator: CityGenerator;
+  public indicatorManager: OffscreenIndicatorManager;
+
   private ambientLight: THREE.AmbientLight;
   private dirLight: THREE.DirectionalLight;
-  private floorMesh: THREE.Mesh;
-  private gridHelper: THREE.GridHelper;
 
   constructor() {
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x0e141a);
-    this.scene.fog = new THREE.FogExp2(0x0e141a, 0.025);
+    this.scene.background = new THREE.Color(0x0a0f16);
+    this.scene.fog = new THREE.FogExp2(0x0a0f16, 0.02);
 
-    // Lights
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    // Moody city lights
+    this.ambientLight = new THREE.AmbientLight(0x7799bb, 0.8);
     this.scene.add(this.ambientLight);
 
-    this.dirLight = new THREE.DirectionalLight(0xffa500, 1.2);
-    this.dirLight.position.set(10, 20, 15);
+    // Warm street/window cast directional light
+    this.dirLight = new THREE.DirectionalLight(0xffaa55, 1.4);
+    this.dirLight.position.set(15, 25, 20);
     this.scene.add(this.dirLight);
 
-    // Arena Floor
-    const floorGeo = new THREE.BoxGeometry(60, 2, 8);
-    const floorMat = new THREE.MeshStandardMaterial({
-      color: 0x1a2630,
-      roughness: 0.8,
-      metalness: 0.2,
-    });
-    this.floorMesh = new THREE.Mesh(floorGeo, floorMat);
-    // Top of floor is at y = 0
-    this.floorMesh.position.set(0, -1, 0);
-    this.scene.add(this.floorMesh);
+    // Procedural Dark City Biome
+    this.cityGenerator = new CityGenerator();
+    this.scene.add(this.cityGenerator.group);
 
-    // Grid helper on top of floor for orientation
-    this.gridHelper = new THREE.GridHelper(60, 30, 0xff8408, 0x2b3d4f);
-    this.gridHelper.position.set(0, 0.01, 0);
-    this.scene.add(this.gridHelper);
-
-    // Atmospheric background geometric pillars / silhouettes
-    const pillarGeo = new THREE.BoxGeometry(1.5, 10, 1.5);
-    const pillarMat = new THREE.MeshStandardMaterial({
-      color: 0x16222c,
-      roughness: 0.7,
-      metalness: 0.1,
-    });
-
-    const pillarPositions = [
-      [-18, 5, -4],
-      [-12, 4, -5],
-      [-5, 6, -6],
-      [4, 5, -5],
-      [11, 7, -4],
-      [17, 4, -6],
-    ];
-
-    pillarPositions.forEach(([x, y, z]) => {
-      const mesh = new THREE.Mesh(pillarGeo, pillarMat);
-      mesh.position.set(x, y, z);
-      this.scene.add(mesh);
-      this.backgroundPillars.push(mesh);
-    });
+    // Off-screen anchor arrow indicators
+    this.indicatorManager = new OffscreenIndicatorManager();
+    this.scene.add(this.indicatorManager.group);
   }
 
   public addPlayer(player: Player): void {
     this.scene.add(player.mesh);
+    this.scene.add(player.ropeLine);
   }
 
-  public updateAmbient(_dt: number, reducedMotion: boolean): void {
-    if (reducedMotion) return;
+  public getPlatforms(): PlatformBox[] {
+    return this.cityGenerator.getPlatforms();
+  }
 
-    // Gentle ambient floating pillars
-    const time = performance.now() * 0.001;
-    this.backgroundPillars.forEach((pillar, i) => {
-      pillar.position.y += Math.sin(time + i) * 0.003;
-    });
+  public getAnchors() {
+    return this.cityGenerator.getAnchors();
+  }
+
+  public updateWorld(
+    playerX: number,
+    playerY: number,
+    dt: number,
+    selectedAnchorId: string | null,
+    screenBounds: { minX: number; maxX: number; minY: number; maxY: number }
+  ): void {
+    this.cityGenerator.update(playerX, playerY, dt);
+    this.cityGenerator.updateAnchorVisuals(selectedAnchorId, playerX, playerY, 36);
+    this.indicatorManager.update(this.cityGenerator.getAnchors(), selectedAnchorId, screenBounds, playerY);
   }
 
   public dispose(): void {
-    this.floorMesh.geometry.dispose();
-    (this.floorMesh.material as THREE.Material).dispose();
-    this.gridHelper.dispose();
-    this.backgroundPillars.forEach((p) => {
-      p.geometry.dispose();
-      (p.material as THREE.Material).dispose();
-    });
+    this.cityGenerator.dispose();
+    this.indicatorManager.dispose();
   }
 }

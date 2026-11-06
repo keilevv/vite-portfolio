@@ -16,7 +16,6 @@ export class GameEngine {
   private isRunning = false;
   private animFrameId: number | null = null;
   private lastTime = 0;
-  private reducedMotion = false;
   private onModeChangeCb?: (mode: ExperienceMode) => void;
 
   constructor() {
@@ -26,11 +25,6 @@ export class GameEngine {
     this.player = new Player(0, 0);
 
     this.sceneManager.addPlayer(this.player);
-
-    // Reduced motion preference
-    if (typeof window !== "undefined") {
-      this.reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    }
   }
 
   public init(canvas: HTMLCanvasElement): void {
@@ -132,13 +126,28 @@ export class GameEngine {
       this.pauseGame();
     }
 
+    const platforms = this.sceneManager.getPlatforms();
+    const anchors = this.sceneManager.getAnchors();
+
     if (this.mode === "playing") {
-      this.player.update(this.inputManager, dt, this.sceneManager.groundY);
+      this.player.update(this.inputManager, dt, this.sceneManager.groundY, platforms, anchors);
     }
 
-    this.sceneManager.updateAmbient(dt, this.reducedMotion);
+    // Procedural city generation & indicators update based on player position & screen bounds
+    const screenBounds = this.cameraController.getScreenEdges();
+    this.sceneManager.updateWorld(
+      this.player.state.position.x,
+      this.player.state.position.y,
+      dt,
+      this.player.state.grapple.selectedAnchorId,
+      screenBounds
+    );
 
-    const isGameplay = this.mode === "playing" || this.mode === "paused";
+    const isGameplay =
+      this.mode === "transitioning-to-game" ||
+      this.mode === "playing" ||
+      this.mode === "paused";
+
     this.cameraController.update(
       this.player.state.position.x,
       this.player.state.position.y,

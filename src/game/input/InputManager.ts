@@ -10,9 +10,20 @@ export class InputManager {
 
     // Prevent scrolling or browser defaults for game keys during gameplay
     if (
-      ["KeyA", "KeyD", "ArrowLeft", "ArrowRight", "Space", "ShiftLeft", "ShiftRight", "Escape"].includes(
-        e.code
-      )
+      [
+        "KeyA",
+        "KeyD",
+        "KeyQ",
+        "KeyE",
+        "KeyW",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowUp",
+        "Space",
+        "ShiftLeft",
+        "ShiftRight",
+        "Escape",
+      ].includes(e.code)
     ) {
       e.preventDefault();
     }

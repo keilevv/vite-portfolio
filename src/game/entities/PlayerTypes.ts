@@ -28,6 +28,21 @@ export const DEFAULT_PLAYER_CONFIG: PlayerMovementConfig = {
   jumpBufferWindow: 0.15,
 };
 
+export interface GrappleState {
+  isHooked: boolean;
+  anchorX: number;
+  anchorY: number;
+  restLength: number; // Resting/equilibrium length of the elastic rope
+  currentLength: number; // Current distance to anchor
+  tension: number; // Normalized tension (0 = limp, >1 = stretched)
+  isFlying: boolean; // Hook is in flight towards anchor
+  flyProgress: number; // 0 to 1
+  hookTipX: number;
+  hookTipY: number;
+  selectedAnchorId: string | null;
+  manualOverrideTimer: number; // Cooldown timer when user manually selects target via Q/E
+}
+
 export interface PlayerState {
   position: { x: number; y: number };
   velocity: { x: number; y: number };
@@ -38,4 +53,5 @@ export interface PlayerState {
   dashCooldownRemaining: number;
   coyoteTimeRemaining: number;
   jumpBufferRemaining: number;
+  grapple: GrappleState;
 }

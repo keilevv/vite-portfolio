@@ -1,6 +1,7 @@
 export type ExperienceMode =
   | "portfolio"
   | "game-intro"
+  | "transitioning-to-game"
   | "playing"
   | "paused";
 
