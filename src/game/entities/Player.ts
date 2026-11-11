@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DEFAULT_PLAYER_CONFIG, PlayerMovementConfig, PlayerState } from "./PlayerTypes";
 import { PlayerController } from "./PlayerController";
 import { InputManager } from "../input/InputManager";
@@ -9,6 +10,11 @@ export class Player {
   public config: PlayerMovementConfig;
   public mesh: THREE.Group;
 
+  // Custom 3D character mesh container (Cyberpunk Ninja)
+  private characterModel: THREE.Group | null = null;
+  private walkTime: number = 0;
+
+  // Fallback box components (shown until Cyberpunk Ninja loads)
   private bodyMesh: THREE.Mesh;
   private visorMesh: THREE.Mesh;
 
@@ -46,7 +52,7 @@ export class Player {
 
     this.mesh = new THREE.Group();
 
-    // Player body
+    // Placeholder player body (fallback while model loads)
     const bodyGeo = new THREE.BoxGeometry(0.9, 1.4, 0.4);
     const bodyMat = new THREE.MeshStandardMaterial({
       color: 0xff8408,
@@ -68,8 +74,10 @@ export class Player {
     this.visorMesh.position.set(0.35, 1.0, 0);
     this.mesh.add(this.visorMesh);
 
+    // Load Cyberpunk Ninja 3D model
+    this.loadCharacterModel();
+
     // Glowing Neon Hookshot Web Line (Multi-segment curve for elasticity & slack)
-    // Kept in world coordinates (added directly to scene in SceneManager)
     const segmentCount = 12;
     this.ropePositions = new Float32Array(segmentCount * 3);
     const ropeGeo = new THREE.BufferGeometry();
@@ -87,6 +95,53 @@ export class Player {
     this.updateMeshTransform();
   }
 
+  private loadCharacterModel(): void {
+    const loader = new GLTFLoader();
+    loader.load(
+      "/models/cyberpunk_ninja.glb",
+      (gltf) => {
+        const model = gltf.scene;
+
+        // Apply stylish materials and shadow properties
+        model.traverse((child) => {
+          if (child instanceof THREE.Mesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+            if (child.material) {
+              child.material.roughness = 0.4;
+              child.material.metalness = 0.3;
+            }
+          }
+        });
+
+        // Compute model bounding box to scale properly to standard player height (approx 1.6 units)
+        const box = new THREE.Box3().setFromObject(model);
+        const size = box.getSize(new THREE.Vector3());
+        const center = box.getCenter(new THREE.Vector3());
+        const targetHeight = 1.6;
+        const scale = size.y > 0 ? targetHeight / size.y : 1.0;
+
+        model.scale.set(scale, scale, scale);
+        // Align model horizontally at center and base flush at y = 0
+        model.position.set(-center.x * scale, -box.min.y * scale, -center.z * scale);
+
+        const container = new THREE.Group();
+        container.add(model);
+
+        this.characterModel = container;
+        this.mesh.add(container);
+
+        // Hide fallback box meshes now that Cyberpunk Ninja has loaded
+        this.bodyMesh.visible = false;
+        this.visorMesh.visible = false;
+      },
+      undefined,
+      (err) => {
+        console.warn("Failed to load cyberpunk ninja model, using fallback mesh:", err);
+      }
+    );
+  }
+
   public update(
     input: InputManager,
     dt: number,
@@ -95,7 +150,7 @@ export class Player {
     anchors: GrappleAnchor[] = []
   ): void {
     PlayerController.update(this.state, this.config, input, dt, groundY, platforms, anchors);
-    this.updateMeshTransform();
+    this.updateMeshTransform(dt);
     this.updateRope();
   }
 
@@ -189,10 +244,54 @@ export class Player {
     }
   }
 
-  private updateMeshTransform(): void {
+  private updateMeshTransform(dt: number = 0.016): void {
     this.mesh.position.set(this.state.position.x, this.state.position.y, 0);
 
     this.visorMesh.position.x = this.state.facing * 0.35;
+
+    // Smooth model orientation facing direction
+    if (this.characterModel) {
+      // Facing 1 is facing right (+X), facing -1 is facing left (-X)
+      const targetRotationY = this.state.facing > 0 ? Math.PI / 2 : -Math.PI / 2;
+      this.characterModel.rotation.y = THREE.MathUtils.lerp(
+        this.characterModel.rotation.y,
+        targetRotationY,
+        Math.min(1, 20 * dt)
+      );
+
+      // Procedural running / jumping / swinging animations
+      const isMovingHoriz = Math.abs(this.state.velocity.x) > 0.4 && this.state.grounded;
+      if (isMovingHoriz) {
+        // Run bounce & stride sway
+        this.walkTime += dt * 14;
+        const bob = Math.abs(Math.sin(this.walkTime)) * 0.12;
+        const tilt = Math.sin(this.walkTime) * 0.08;
+        this.characterModel.position.y = bob;
+        this.characterModel.rotation.z = -tilt * this.state.facing;
+        // Lean forward into the run
+        this.characterModel.rotation.x = 0.18;
+      } else if (!this.state.grounded && !this.state.grapple.isHooked) {
+        // Airborne jump / fall posture: slight backward lean while ascending, forward when falling
+        this.walkTime = 0;
+        this.characterModel.position.y = 0;
+        const airLean = this.state.velocity.y > 0 ? -0.15 : 0.2;
+        this.characterModel.rotation.x = airLean;
+        this.characterModel.rotation.z = 0;
+      } else if (this.state.grapple.isHooked) {
+        // Web swing posture
+        this.walkTime = 0;
+        this.characterModel.position.y = 0;
+        this.characterModel.rotation.x = -0.25; // Reaching up / forward
+        this.characterModel.rotation.z = 0;
+      } else {
+        // Idle breathing bob
+        this.walkTime += dt * 3;
+        const breathe = Math.sin(this.walkTime) * 0.03;
+        this.characterModel.position.y = breathe;
+        this.characterModel.rotation.x = 0;
+        this.characterModel.rotation.z = 0;
+      }
+    }
 
     // Visual tilt while swinging
     if (this.state.grapple.isHooked) {
@@ -200,7 +299,7 @@ export class Player {
       const dy = this.state.position.y - this.state.grapple.anchorY;
       const angle = Math.atan2(dx, -dy);
       this.mesh.rotation.z = -angle * 0.8;
-      this.mesh.scale.set(1.1, 0.9, 1);
+      this.mesh.scale.set(1.05, 0.95, 1);
     } else {
       this.mesh.rotation.z = 0;
       if (this.state.isDashing) {
