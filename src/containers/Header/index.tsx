@@ -9,13 +9,13 @@ function HeaderContainer() {
       <div className="header-container pb-10">
         <div className="header-content">
           <div className="header-text">
-            <h1 className="header-title"> Caleb Villalba</h1>
-            <h1 className="header-subtitle transition-brown ">
+            <h1 className="header-title">Caleb Villalba</h1>
+            <h2 className="header-subtitle transition-brown">
               <FormattedMessage id="banner.subtitle" />
-            </h1>
-            <h1 className="header-description">
+            </h2>
+            <p className="header-description">
               <FormattedMessage id="banner.description" />
-            </h1>
+            </p>
           </div>
           <div className="header-avatar">
             <img

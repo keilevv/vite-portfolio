@@ -1,11 +1,10 @@
 import ProjectCard from "../../components/ProjectCard";
 import AutoexpressImage from "../../assets/autoexpress.png";
-import VoxelEngineImage from "../../assets/voxelengine.png";
-import FleksImage from "../../assets/fleks.png";
-import VonwoodImage from "../../assets/vonwood.png";
 import LeafClassifierImage from "../../assets/leaf_classifier.png";
 import BuceoAventuraImage from "../../assets/buceo_aventura.png";
 import WorkwaveImage from "../../assets/workwave.png";
+import MovifisioImage from "../../assets/movifisio.png";
+import EatCloudImage from "../../assets/eatcloud.png";
 
 // import "./style.css";
 import { FormattedMessage } from "react-intl";
@@ -42,9 +41,9 @@ function ProjectsContainer({ intl }: Props) {
       ],
     },
     {
-      title: "Leaf Classifier",
-      siteLink: "http://129.153.122.159/",
-      githubLink: "https://github.com/keilevv/leaf-classifier",
+      title: "SAPSAI",
+      siteLink: "https://sapsai.iscoutb.dev/",
+      githubLink: "https://github.com/keilevv/sapsai",
       image: LeafClassifierImage,
       description: intl.formatMessage({
         id: "projectCard.leaf_classifier.description",
@@ -57,6 +56,44 @@ function ProjectsContainer({ intl }: Props) {
         "ExpressJs",
         "PostgreSQL",
         "Bun.js",
+      ],
+    },
+    {
+      title: "Movifisio",
+      siteLink: "https://www.movifisioctg.com/",
+      githubLink: "https://github.com/keilevv/frontend-movi",
+      image: MovifisioImage,
+      description: intl.formatMessage({
+        id: "projectCard.movifisio.description",
+      }),
+      tags: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Vite",
+        "ExpressJs",
+        "PostgreSQL",
+        "Node.js",
+        "Cloudflare R2",
+      ],
+    },
+        {
+      title: "EatCloud",
+      siteLink: "https://eatcloud-frontend.vercel.app/",
+      githubLink: "https://github.com/keilevv/eatcloud-frontend",
+      image: EatCloudImage,
+      description: intl.formatMessage({
+        id: "projectCard.movifisio.description",
+      }),
+      tags: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "ExpressJs",
+        "PostgreSQL",
+        "Node.js",
+        "Stadia Maps"
       ],
     },
     {
@@ -78,14 +115,6 @@ function ProjectsContainer({ intl }: Props) {
       ],
     },
     {
-      title: "Voxelengine",
-      siteLink: "https://voxelengine-lc43vw726-keilevvs-projects.vercel.app/",
-      githubLink: "https://github.com/keilevv/voxelengine",
-      image: VoxelEngineImage,
-      description: intl.formatMessage({ id: "projectCard.2.description" }),
-      tags: ["React", "Javascript ES6", "Three.js", "WebGL", "Vite"],
-    },
-    {
       title: "Nestor Castelblanco",
       siteLink: "https://workwave-hjox.onrender.com/",
       githubLink: "https://github.com/keilevv/workwave",
@@ -104,24 +133,24 @@ function ProjectsContainer({ intl }: Props) {
     },
   ];
 
-  const workedOnProjects: ProjectCardProps[] = [
-    {
-      title: "Fleks",
-      siteLink: "https://app.fleks.works/",
-      githubLink: "",
-      image: FleksImage,
-      description: intl.formatMessage({ id: "projectCard.4.description" }),
-      tags: ["React", "Javascript", "Redux", "Webpack", "Node.js", "Antd"],
-    },
-    {
-      title: "Vonwood",
-      siteLink: "https://vonwood.com/",
-      githubLink: "",
-      image: VonwoodImage,
-      description: intl.formatMessage({ id: "projectCard.5.description" }),
-      tags: ["React", "Typescript", "Redux", "Webpack", "Node.js", "Antd"],
-    },
-  ];
+  // const workedOnProjects: ProjectCardProps[] = [
+  //   {
+  //     title: "Fleks",
+  //     siteLink: "https://app.fleks.works/",
+  //     githubLink: "",
+  //     image: FleksImage,
+  //     description: intl.formatMessage({ id: "projectCard.4.description" }),
+  //     tags: ["React", "Javascript", "Redux", "Webpack", "Node.js", "Antd"],
+  //   },
+  //   {
+  //     title: "Vonwood",
+  //     siteLink: "https://vonwood.com/",
+  //     githubLink: "",
+  //     image: VonwoodImage,
+  //     description: intl.formatMessage({ id: "projectCard.5.description" }),
+  //     tags: ["React", "Typescript", "Redux", "Webpack", "Node.js", "Antd"],
+  //   },
+  // ];
   return (
     <div className="md:p-8 p-2">
       <h1 className="text-3xl font-bold text-orange-500 mb-10 text-center">
@@ -141,7 +170,7 @@ function ProjectsContainer({ intl }: Props) {
           </div>
         ))}
       </div>
-      <h1 className="text-3xl font-bold text-orange-500 my-10 text-center">
+      {/* <h1 className="text-3xl font-bold text-orange-500 my-10 text-center">
         <FormattedMessage id="projects.worked" />
       </h1>
       <div className="flex flex-wrap justify-center gap-8">
@@ -157,7 +186,7 @@ function ProjectsContainer({ intl }: Props) {
             />
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

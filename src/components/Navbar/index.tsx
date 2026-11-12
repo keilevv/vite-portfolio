@@ -39,7 +39,7 @@ function Navbar() {
         <input type="checkbox" id="nav-check" />
         <div className="nav-header">
           <a className="transition-wheat nav-title" href="#header">
-            Caleb Villaba
+            Caleb Villalba
           </a>
         </div>
         <div
