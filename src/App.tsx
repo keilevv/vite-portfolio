@@ -59,7 +59,7 @@ function App() {
   return (
     <IntlProvider messages={messages} locale={language} defaultLocale="en">
       <div className="app-container relative">
-        <HolographicTerrain className="!fixed inset-0 z-0" />
+        <HolographicTerrain className="!fixed inset-x-0 top-0 !h-[100lvh] z-0" />
         <div
           ref={backdropRef}
           className="fixed inset-0 pointer-events-none z-0"

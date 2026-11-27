@@ -349,9 +349,16 @@ export default function HolographicTerrain({ className = "" }: HolographicTerrai
       changeView((currentViewIndex + 1) % views.length);
     }, 7500);
 
+    let lastWidth = container.clientWidth || window.innerWidth;
+    let lastHeight = container.clientHeight || window.innerHeight;
+
     const onResize = () => {
       const w = container.clientWidth || window.innerWidth;
       const h = container.clientHeight || window.innerHeight;
+      // Ignore height-only resizes on mobile caused by the browser URL bar hiding/showing
+      if (w === lastWidth && Math.abs(h - lastHeight) < 160) return;
+      lastWidth = w;
+      lastHeight = h;
       const pr = Math.min(window.devicePixelRatio, 1.5);
 
       camera.instance.aspect = w / h;

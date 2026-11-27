@@ -64,9 +64,7 @@ function Navbar() {
           className="nav-handler-btn"
           onClick={() => {
             setManualOpen(true);
-            if (window.innerWidth <= 600) {
-              setExpanded(true);
-            }
+            setExpanded(true);
           }}
           aria-label="Open Navigation"
         >
