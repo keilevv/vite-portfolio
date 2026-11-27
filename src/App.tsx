@@ -9,11 +9,15 @@ import ExperienceContainer from "./containers/Experience";
 import ProjectsContainer from "./containers/Projects";
 /* Hooks */
 import { useStore } from "./store/useStore";
+import { useParallax } from "./hooks/useParallax";
 import "./style.css";
 
 function App() {
   const { language } = useStore();
   const [messages, setMessages] = useState(englishTranslations.messages);
+
+  // Initialize multi-layer parallax
+  useParallax();
 
   useEffect(() => {
     if (language === "en") {
@@ -21,7 +25,7 @@ function App() {
     } else {
       setMessages(spanishTranslations.messages);
     }
-  });
+  }, [language]);
   return (
     <IntlProvider messages={messages} locale={language} defaultLocale="en">
       <div className="app-container">

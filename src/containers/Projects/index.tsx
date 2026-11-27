@@ -1,10 +1,10 @@
 import ProjectCard from "../../components/ProjectCard";
-import AutoexpressImage from "../../assets/autoexpress.png";
-import LeafClassifierImage from "../../assets/leaf_classifier.png";
-import BuceoAventuraImage from "../../assets/buceo_aventura.png";
-import WorkwaveImage from "../../assets/workwave.png";
-import MovifisioImage from "../../assets/movifisio.png";
-import EatCloudImage from "../../assets/eatcloud.png";
+import AutoexpressImage from "../../assets/autoexpress.webp";
+import LeafClassifierImage from "../../assets/leaf_classifier.webp";
+import BuceoAventuraImage from "../../assets/buceo_aventura.webp";
+import WorkwaveImage from "../../assets/workwave.webp";
+import MovifisioImage from "../../assets/movifisio.webp";
+import EatCloudImage from "../../assets/eatcloud.webp";
 
 // import "./style.css";
 import { FormattedMessage } from "react-intl";
@@ -153,12 +153,16 @@ function ProjectsContainer({ intl }: Props) {
   // ];
   return (
     <div className="md:p-8 p-2">
-      <h1 className="text-3xl font-bold text-orange-500 mb-10 text-center">
+      <h1 className="text-3xl font-bold text-orange-500 mb-10 text-center" data-parallax-speed="0.08">
         <FormattedMessage id="projects.owned" />
       </h1>
       <div className="flex flex-wrap justify-center gap-8">
         {projects.map((project, index) => (
-          <div className="max-w-[400px]" key={index}>
+          <div
+            className="max-w-[400px]"
+            key={index}
+            data-parallax-speed={(index % 3 === 0 ? 0.04 : index % 3 === 1 ? -0.03 : 0.02).toString()}
+          >
             <ProjectCard
               title={project.title}
               siteLink={project.siteLink}

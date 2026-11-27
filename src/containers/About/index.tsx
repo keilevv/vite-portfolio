@@ -38,22 +38,22 @@ function AboutContainer() {
   ];
   return (
     <div className="about-container">
-      <h1 className="about-title text-2xl mb-8">
+      <h1 className="about-title text-2xl mb-8" data-parallax-speed="0.08">
         <FormattedMessage id="about.title" />
       </h1>
-      <p className="about-text mb-4">
+      <p className="about-text mb-4" data-parallax-speed="0.03">
         <FormattedMessage id="about.paragraph.1" />
       </p>
-      <p className="about-text mb-4">
+      <p className="about-text mb-4" data-parallax-speed="0.04">
         <FormattedMessage id="about.paragraph.2" />
       </p>
-      <p className="about-text mb-4">
+      <p className="about-text mb-4" data-parallax-speed="0.05">
         <FormattedMessage id="about.paragraph.3" />
       </p>
-      <h1 className="about-title section text-2xl mb-8">
+      <h1 className="about-title section text-2xl mb-8" data-parallax-speed="0.08">
         <FormattedMessage id="about.skills" />
       </h1>
-      <div className="about-skills">
+      <div className="about-skills" data-parallax-speed="-0.04">
         <div className="main-skill">
           <h2>Frontend</h2>
           <div className="icons-container">

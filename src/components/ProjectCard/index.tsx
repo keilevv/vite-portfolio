@@ -40,7 +40,11 @@ function ProjectCard({
       <img
         className="w-full rounded-t-lg h-32 sm:h-36 md:h-40 object-cover"
         src={image}
-        alt="Autoexpress"
+        alt={title}
+        loading="lazy"
+        decoding="async"
+        width={400}
+        height={160}
       />
       <div className="p-4 flex flex-col gap-3 flex-1">
         <h1 className="text-xl font-bold text-orange-200">{title}</h1>

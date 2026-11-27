@@ -1,8 +1,8 @@
 import { FormattedMessage } from "react-intl";
-import AutoexpressLogo from "../../assets/autoexpress-logo.png";
-import Concept7Logo from "../../assets/concept7_logo.jpg";
-import FleksLogo from "../../assets/fleksworks_logo.jpg";
-import Elemento43Logo from "../../assets/logo-e43.jpg";
+import AutoexpressLogo from "../../assets/autoexpress-logo.webp";
+import Concept7Logo from "../../assets/concept7_logo.webp";
+import FleksLogo from "../../assets/fleksworks_logo.webp";
+import Elemento43Logo from "../../assets/logo-e43.webp";
 import "./style.css";
 
 interface ExperienceItem {
@@ -43,12 +43,12 @@ const experiences: ExperienceItem[] = [
 function ExperienceContainer() {
   return (
     <div className="experience-container">
-      <h1 className="experience-container-title text-2xl">
+      <h1 className="experience-container-title text-2xl" data-parallax-speed="0.08">
         <FormattedMessage id="experience.title" />
       </h1>
       <div className="experience-content">
         {experiences.map((exp, index) => (
-          <div key={exp.id}>
+          <div key={exp.id} data-parallax-speed={(index % 2 === 0 ? 0.04 : -0.03).toString()}>
             {index > 0 && <div className="divider" />}
             <div className="experience-row">
               <div className="experience-image-container">
@@ -57,6 +57,10 @@ function ExperienceContainer() {
                     src={exp.image}
                     className="experience-image"
                     alt={`Experience ${exp.id}`}
+                    loading="lazy"
+                    decoding="async"
+                    width={84}
+                    height={84}
                   />
                 ) : (
                   <div className="experience-icon-fallback">

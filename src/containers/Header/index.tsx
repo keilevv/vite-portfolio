@@ -1,5 +1,5 @@
 import { FormattedMessage } from "react-intl";
-import AvatarImage from "../../assets/me.jpg";
+import AvatarImage from "../../assets/me.webp";
 import Navbar from "../../components/Navbar";
 import "./style.css";
 function HeaderContainer() {
@@ -8,7 +8,7 @@ function HeaderContainer() {
       <Navbar />
       <div className="header-container pb-10">
         <div className="header-content">
-          <div className="header-text">
+          <div className="header-text" data-parallax-speed="0.12">
             <h1 className="header-title">Caleb Villalba</h1>
             <h2 className="header-subtitle transition-brown">
               <FormattedMessage id="banner.subtitle" />
@@ -17,15 +17,18 @@ function HeaderContainer() {
               <FormattedMessage id="banner.description" />
             </p>
           </div>
-          <div className="header-avatar">
+          <div className="header-avatar" data-parallax-speed="-0.08">
             <img
               src={AvatarImage}
               className="avatar-image"
-              alt="Avatar image"
+              alt="Caleb Villalba"
+              width={300}
+              height={300}
+              fetchPriority="high"
             />
           </div>
         </div>
-        <div className="social-icons-container">
+        <div className="social-icons-container" data-parallax-speed="0.18">
           <i
             className="fa-brands fa-square-github social-icon transition-brown"
             onClick={() => window.open("https://github.com/keilevv")}
