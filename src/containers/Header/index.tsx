@@ -18,14 +18,16 @@ function HeaderContainer() {
             </p>
           </div>
           <div className="header-avatar" data-parallax-speed="-0.08">
-            <img
-              src={AvatarImage}
-              className="avatar-image"
-              alt="Caleb Villalba"
-              width={300}
-              height={300}
-              fetchPriority="high"
-            />
+            <div className="avatar-frame">
+              <img
+                src={AvatarImage}
+                className="avatar-image"
+                alt="Caleb Villalba"
+                width={320}
+                height={380}
+                fetchPriority="high"
+              />
+            </div>
           </div>
         </div>
         <div className="social-icons-container" data-parallax-speed="0.18">

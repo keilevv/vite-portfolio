@@ -70,7 +70,7 @@ const spanishTranslations = {
       "projectCard.button": "Ver Sitio",
     "projectCard.showMore": "Mostrar Más",
     "projectCard.showLess": "Mostrar Menos",
-    "footer.text": "Hecho con ❤️ por Caleb Villalba",
+    "footer.text": "Hecho con ❤️  ",
   },
 };
 

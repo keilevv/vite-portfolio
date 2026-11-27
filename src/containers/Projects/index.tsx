@@ -152,14 +152,14 @@ function ProjectsContainer({ intl }: Props) {
   //   },
   // ];
   return (
-    <div className="md:p-8 p-2">
-      <h1 className="text-3xl font-bold text-orange-500 mb-10 text-center" data-parallax-speed="0.08">
+    <div className="md:px-8 px-6 py-20">
+      <h1 className="section-title mb-10" data-parallax-speed="0.08">
         <FormattedMessage id="projects.owned" />
       </h1>
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-6 md:gap-8">
         {projects.map((project, index) => (
           <div
-            className="max-w-[400px]"
+            className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1.35rem)] max-w-[400px]"
             key={index}
             data-parallax-speed={(index % 3 === 0 ? 0.04 : index % 3 === 1 ? -0.03 : 0.02).toString()}
           >

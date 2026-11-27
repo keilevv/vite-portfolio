@@ -71,7 +71,7 @@ const englishTranslations = {
       "projectCard.button": "View Site",
     "projectCard.showMore": "Show More",
     "projectCard.showLess": "Show Less",
-    "footer.text": "Made with ❤️ by Caleb Villalba",
+    "footer.text": "Made with ❤️",
   },
 };
 export default englishTranslations;

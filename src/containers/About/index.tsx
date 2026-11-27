@@ -4,19 +4,24 @@ import {
   IconAmazons3,
   IconCss3,
   IconExpress,
+  IconFastapi,
   IconHtml5,
   IconJavascript,
   IconMongodb,
   IconNodejs,
+  IconPostgresql,
+  IconPython,
   IconReact,
   IconRedux,
-  IconThreedotjs,
   IconRabbitmq,
+  IconTailwind,
+  IconThreedotjs,
+  IconTypescript,
+  IconZustand,
+  IconGithub,
 } from "../../assets/logos";
 function AboutContainer() {
   const iconProps = {
-    width: 50,
-    height: 50,
     color: "#ff8408",
     className: "transition-wheat",
   };
@@ -26,7 +31,10 @@ function AboutContainer() {
     { title: "CSS", icon: <IconCss3 {...iconProps} /> },
     { title: "Redux", icon: <IconRedux {...iconProps} /> },
     { title: "Three.js", icon: <IconThreedotjs {...iconProps} /> },
-    { title: "Javascript ES6", icon: <IconJavascript {...iconProps} /> },
+    { title: "JavaScript", icon: <IconJavascript {...iconProps} /> },
+    { title: "TypeScript", icon: <IconTypescript {...iconProps} /> },
+    { title: "Zustand", icon: <IconZustand {...iconProps} /> },
+    { title: "Tailwind", icon: <IconTailwind {...iconProps} /> },
   ];
 
   const backendSkills = [
@@ -35,10 +43,14 @@ function AboutContainer() {
     { title: "MongoDB", icon: <IconMongodb {...iconProps} /> },
     { title: "RabbitMQ", icon: <IconRabbitmq {...iconProps} /> },
     { title: "AmazonS3", icon: <IconAmazons3 {...iconProps} /> },
+    { title: "PostgreSQL", icon: <IconPostgresql {...iconProps} /> },
+    { title: "Python", icon: <IconPython {...iconProps} /> },
+    { title: "FastAPI", icon: <IconFastapi {...iconProps} /> },
+    { title: "GitHub Actions", icon: <IconGithub {...iconProps} /> },
   ];
   return (
     <div className="about-container">
-      <h1 className="about-title text-2xl mb-8" data-parallax-speed="0.08">
+      <h1 className="about-title section-title" data-parallax-speed="0.08">
         <FormattedMessage id="about.title" />
       </h1>
       <p className="about-text mb-4" data-parallax-speed="0.03">
@@ -50,7 +62,10 @@ function AboutContainer() {
       <p className="about-text mb-4" data-parallax-speed="0.05">
         <FormattedMessage id="about.paragraph.3" />
       </p>
-      <h1 className="about-title section text-2xl mb-8" data-parallax-speed="0.08">
+      <h1
+        className="about-title section-title section"
+        data-parallax-speed="0.08"
+      >
         <FormattedMessage id="about.skills" />
       </h1>
       <div className="about-skills" data-parallax-speed="-0.04">

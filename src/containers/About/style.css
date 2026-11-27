@@ -1,14 +1,18 @@
 .about-container {
   display: flex;
-  padding: 50px;
+  padding: 80px 24px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   .about-title {
     color: wheat;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
   }
   .section {
-    margin: 50px 0px;
+    margin: 60px 0px 20px;
   }
 
   .about-text {
@@ -17,46 +21,115 @@
   }
   .about-skills {
     display: flex;
-    max-width: 700px;
+    align-items: stretch;
+    max-width: 760px;
     width: 100%;
+    margin-top: 40px;
+
     .main-skill {
-      width: 50%;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      min-height: 300px;
+      align-items: center;
+
       h2 {
         text-align: center;
         color: #ff8408;
+        margin-bottom: 8px;
       }
+
       .icons-container {
-        padding: 20px;
+        padding: 16px 12px;
         display: flex;
         flex-wrap: wrap;
-        align-items: right;
-        gap: 20px;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px 16px;
+
+        /* Each icon cell: fixed width so text centers under the SVG */
         .icon {
-          margin: 0px auto;
-          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          width: 68px;
+          gap: 6px;
           transition: all 0.3s ease-in-out;
+
+          /* The SVG inside */
+          svg {
+            display: block;
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+          }
+
+          p {
+            margin: 0;
+            font-size: 0.72rem;
+            line-height: 1.2;
+            text-align: center;
+            word-break: break-word;
+            color: rgba(255, 255, 255, 0.85);
+          }
         }
+
         .icon:hover {
-          filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+          filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.45));
           transform: scale(1.1);
         }
       }
     }
+
     .divider {
-      width: 2px;
-      background-color: white;
+      flex-shrink: 0;
+      width: 1px;
+      margin: 0 8px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255, 255, 255, 0.5) 20%,
+        rgba(255, 255, 255, 0.5) 80%,
+        transparent
+      );
     }
   }
 }
 
 @media screen and (max-width: 600px) {
   .about-container {
-    padding: 35px;
+    padding: 50px 20px;
+    .about-title {
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
     .about-text {
       font-size: 16px;
+    }
+    .about-skills {
+      flex-direction: column;
+      align-items: center;
+
+      .main-skill {
+        width: 100%;
+        align-items: center;
+
+        .icons-container {
+          justify-content: center;
+        }
+      }
+
+      .divider {
+        width: 80%;
+        height: 1px;
+        margin: 24px auto;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.5) 20%,
+          rgba(255, 255, 255, 0.5) 80%,
+          transparent
+        );
+      }
     }
   }
 }
