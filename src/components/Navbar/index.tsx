@@ -25,6 +25,7 @@ function Navbar() {
       setIsOnHeader(onHeader);
       if (!onHeader) {
         setManualOpen(false);
+        setExpanded(false);
       }
     };
 
@@ -61,7 +62,12 @@ function Navbar() {
         <button
           type="button"
           className="nav-handler-btn"
-          onClick={() => setManualOpen(true)}
+          onClick={() => {
+            setManualOpen(true);
+            if (window.innerWidth <= 600) {
+              setExpanded(true);
+            }
+          }}
           aria-label="Open Navigation"
         >
           <span className="nav-handler-bars">
@@ -78,28 +84,33 @@ function Navbar() {
         }`}
       >
         <div className="nav-content">
-          <input type="checkbox" id="nav-check" />
+          <input
+            type="checkbox"
+            id="nav-check"
+            checked={expanded}
+            onChange={(e) => setExpanded(e.target.checked)}
+          />
           <div className="nav-header">
             <a
               className="transition-wheat nav-title"
               href="#header"
-              onClick={() => setManualOpen(false)}
+              onClick={() => {
+                setManualOpen(false);
+                setExpanded(false);
+              }}
             >
               Caleb Villalba
             </a>
           </div>
-          <div
-            className="nav-btn"
-            onClick={() => {
-              setExpanded((prev) => !prev);
-            }}
-          >
-            <label htmlFor="nav-check">
-              <span></span>
-              <span></span>
-              <span></span>
-            </label>
-          </div>
+          {!(isOnHeader && manualOpen) && (
+            <div className="nav-btn">
+              <label htmlFor="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+          )}
           <div className="nav-right">
             <div className="relative flex items-stretch" ref={dropdownRef}>
               <button
@@ -137,21 +148,30 @@ function Navbar() {
               <a
                 className="transition-wheat"
                 href="#experience"
-                onClick={() => setManualOpen(false)}
+                onClick={() => {
+                  setManualOpen(false);
+                  setExpanded(false);
+                }}
               >
                 <FormattedMessage id="navbar.experience" />
               </a>
               <a
                 className="transition-wheat"
                 href="#about"
-                onClick={() => setManualOpen(false)}
+                onClick={() => {
+                  setManualOpen(false);
+                  setExpanded(false);
+                }}
               >
                 <FormattedMessage id="navbar.about" />
               </a>
               <a
                 className="transition-wheat"
                 href="#projects"
-                onClick={() => setManualOpen(false)}
+                onClick={() => {
+                  setManualOpen(false);
+                  setExpanded(false);
+                }}
               >
                 <FormattedMessage id="navbar.projects" />
               </a>
@@ -161,7 +181,10 @@ function Navbar() {
               <button
                 type="button"
                 className="nav-close-btn"
-                onClick={() => setManualOpen(false)}
+                onClick={() => {
+                  setManualOpen(false);
+                  setExpanded(false);
+                }}
                 aria-label="Close Navigation"
               >
                 <i className="fa-solid fa-xmark"></i>

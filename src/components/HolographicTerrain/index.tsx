@@ -349,15 +349,6 @@ export default function HolographicTerrain({ className = "" }: HolographicTerrai
       changeView((currentViewIndex + 1) % views.length);
     }, 7500);
 
-    const onMouseMove = (event: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const clientX = event.clientX - rect.left;
-      const clientY = event.clientY - rect.top;
-      parallax.target.x = (clientX / rect.width - 0.5) * parallax.multiplier;
-      parallax.target.y = -(clientY / rect.height - 0.5) * parallax.multiplier;
-    };
-    window.addEventListener("mousemove", onMouseMove);
-
     const onResize = () => {
       const w = container.clientWidth || window.innerWidth;
       const h = container.clientHeight || window.innerHeight;
@@ -395,11 +386,6 @@ export default function HolographicTerrain({ className = "" }: HolographicTerrai
 
       camera.instance.position.copy(camera.position);
 
-      parallax.eased.x += (parallax.target.x - parallax.eased.x) * deltaTime * parallax.eased.multiplier;
-      parallax.eased.y += (parallax.target.y - parallax.eased.y) * deltaTime * parallax.eased.multiplier;
-      camera.instance.translateX(parallax.eased.x);
-      camera.instance.translateY(parallax.eased.y);
-
       camera.instance.rotation.x = camera.rotation.x;
       camera.instance.rotation.y = camera.rotation.y;
 
@@ -428,7 +414,6 @@ export default function HolographicTerrain({ className = "" }: HolographicTerrai
       observer.disconnect();
       window.cancelAnimationFrame(animationFrameId);
       window.clearInterval(viewInterval);
-      window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", onResize);
 
       terrainGeometry.dispose();
